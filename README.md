@@ -49,8 +49,8 @@ Topics amongst negative and highly impactful social media interactions for South
 - others
 
 # To Run:
-To analyze "news" data: {python src/main.py configs/news_analysis.json}
-To analyze "social" data: {python src/main.py configs/social_analysis.json}  
+To analyze "news" data: ```python src/main.py configs/news_analysis.json```
+To analyze "social" data: ```python src/main.py configs/social_analysis.json```  
 
-To test: {pytest .}
+To test: ```pytest .```
 
