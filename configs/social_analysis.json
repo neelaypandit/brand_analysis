@@ -1,0 +1,15 @@
+{
+    "task": {
+        "name": "analyze_social",
+        "target_brand": "Southwest Airlines",
+        "sentiment_model_type": "BERT",
+        "sentiment_model": "siebert/sentiment-roberta-large-english",
+        "top_k": 1000
+    },
+    "data_src": {
+        "bucket_name": "peakmetrics-challenges",
+        "s3_folder": "data-science",
+        "src_data_dir": "social",
+        "data_dir": "data"
+    }
+}
