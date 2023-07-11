@@ -4,7 +4,7 @@ This project demonstrates my approach for how a brand (a major airline) might wa
 
 For topic modeling, UMAP/HDBscan provides a powerful dimensionality reduction and density based clustering approach on sentence vectors. For vectorization, count vectorizer is simple but effective in generating relevant topics, although using embedding models from Huggingface might provide better results. Other approaches such as LDA, HDP, NMF, are also possibly worth exploring, and provide some quantitative measures of inter/intra topic performance, i.e., coherence, perplexity. 
 
-For sentiment analysis, finetuned BERT-based models provide some of the best results for various sentiment related tasks. But sentiment is a complex problem and very sensitive to the domain of the training data. For example models trained on IMDB data will perform poorly on Twitter datasets or product review datasets. A similar diversity of input data is present here: news vs reddit vs twitter, etc. 
+For sentiment analysis, finetuned BERT-based models provide some of the best results for various sentiment related tasks. Sentiment is a complex problem and very sensitive to the domain of the training data. Evaluating sentiment, especially for larger text samples, can also be hard to determine. A more granular understanding of sentiment as it applies to a specific entity, such as targetted sentiment, would be more appropriate. This was not used for this project. 
 
 This is a rough project structure with two types of analyses, one on the "news" data and one on the "social" data. A few missing things from the project: type hints, complete class/function documentation, refactoring, performance considerations, handling data properly, testing, proper model hygiene, and requirements.
 
