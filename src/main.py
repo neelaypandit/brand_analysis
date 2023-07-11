@@ -25,10 +25,14 @@ def analyze_news(sentiment_model_type, sentiment_model_name, data_dir, src_data_
     of the topic model's performance, it can be applied to future data. 
 
     Parameters:
-        sentiment_model_type (str): Type of sentiment model, vader, or BERT.
-        sentiment_model_name (str): Name of Huggingface model if BERT based sentiment
-        src_data_dir (str): Local path to dir with dataset parquet files. 
-        target (str): Name of the brand to partition data, e.g., "southwest airlines"    
+        sentiment_model_type : str 
+            Type of sentiment model, vader, or BERT.
+        sentiment_model_name : str 
+            Name of Huggingface model if BERT based sentiment
+        src_data_dir : str
+            Local path to dir with dataset parquet files. 
+        target : str
+            Name of the brand to partition data, e.g., "southwest airlines"    
     """
 
     # load parquet to df and perform some cleaning on it
@@ -106,11 +110,16 @@ def analyze_social(sentiment_model_type, sentiment_model_name, data_dir, src_dat
     topics currently being discussed. 
 
     Parameters:
-        sentiment_model_type (str): Type of sentiment model, vader, or BERT.
-        sentiment_model_name (str): Name of Huggingface model if BERT based sentiment
-        src_data_dir (str): Local path to dir with dataset parquet files. 
-        target (str): Name of the brand to partition data, e.g., "southwest airlines"    
-        **top_k (int): number of posts to process when sorted for audience views 
+        sentiment_model_type : str
+            Type of sentiment model, vader, or BERT.
+        sentiment_model_name : str
+            Name of Huggingface model if BERT based sentiment
+        src_data_dir : str
+            Local path to dir with dataset parquet files. 
+        target : str
+            Name of the brand to partition data, e.g., "southwest airlines"    
+        **top_k : int
+            number of posts to process when sorted for audience views 
     """    
     # load parquet to df and perform some cleaning on it
     #   Note: placeholder for more rigorous cleaning
@@ -204,14 +213,14 @@ if __name__ == "__main__":
     target = config_data["task"]["target_brand"]
 
     # list files in s3, check if downloaded, and download locally
-    # s3_connector = S3Connector()
-    # s3_file_list = s3_connector.list_files(bucket_name, s3_folder)
-    # files_exist = True
-    # for file in s3_file_list:
-    #     if not os.path.exists(os.path.join(data_dir, file)):
-    #         files_exist = False
-    # if not files_exist:
-    #     s3_connector.download_s3_folder(bucket_name, s3_folder, data_dir)
+    s3_connector = S3Connector()
+    s3_file_list = s3_connector.list_files(bucket_name, s3_folder)
+    files_exist = True
+    for file in s3_file_list:
+        if not os.path.exists(os.path.join(data_dir, file)):
+            files_exist = False
+    if not files_exist:
+        s3_connector.download_s3_folder(bucket_name, s3_folder, data_dir)
 
     # run task
     locals()[config_data["task"]["name"]](sentiment_model_type, sentiment_model_name, data_dir, src_data_dir, target, **config_data)

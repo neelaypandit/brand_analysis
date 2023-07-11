@@ -5,7 +5,8 @@ import pandas as pd
 
 def filter_headlines(target, df, text_field):
     """
-        Placeholder Docstring
+    Placeholder Docstring
+    Adds a field(bool) if the string in target is found in the string in text_field
     """
     listed = df[text_field].tolist()
     df["on_brand"] = [target in n for n in listed]
@@ -20,6 +21,10 @@ def filter_headlines(target, df, text_field):
     return df_on_brand, df_competitors
 
 def check_dir(path, create=True):
+    """
+    Placeholder Docstring.
+    Checks if path exists and makes a folder if it doesn't
+    """        
     if os.path.exists(path):
         return True
     elif create:
@@ -29,11 +34,19 @@ def check_dir(path, create=True):
 
 
 def clean_dataframe(df, fields):
+    """
+    Placeholder Docstring.
+    Some dataframe cleaning steps. Incomplete. 
+    """      
     df = df.dropna(subset=fields)
     filtered_df = df[df['language'] == "en"]
     return filtered_df
 
 class S3Connector():
+    """
+    Placeholder Docstring
+    Allows listing files in a bucket and downloading them. 
+    """
     def __init__(self):
         self.s3_conn = boto3.resource('s3',
             aws_access_key_id=os.environ["aws_access_key_id"],
