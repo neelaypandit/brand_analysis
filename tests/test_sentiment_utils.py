@@ -29,7 +29,7 @@ def test_bert_sentiment(texts):
     assert abs(HF_model_T.infer(texts[0]) - negative_pipeline_score) < 0.001
     assert HF_model_T.infer(texts[0]) == HF_model_nT.infer(texts[0])    
 
-    # check if negative behavior is correct
+    # check if positive behavior is correct
     positive_pipeline_score = sentiment_model(texts[0])[0]["score"]
     assert HF_model_T.infer(texts[1]) > 0.5
     assert abs(HF_model_T.infer(texts[1]) - positive_pipeline_score) < 0.001
