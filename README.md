@@ -4,7 +4,7 @@ This project demonstrates my approach for how a company (a major airline) might 
 
 For topic modeling, UMAP/HDBscan provides a powerful dimensionality reduction and density based clustering approach on sentence vectors. For vectorization, count vectorizer is simple but effective in generating relevant topics, although using embedding models from Huggingface might provide better results. Other approaches such as LDA, HDP, NMF, are also possibly worth exploring, and provide some quantitative measures of inter/intra topic performance, i.e., coherence, perplexity. 
 
-For sentiment analysis, finetuned BERT-based models provide some of the best results for various sentiment-related tasks. Sentiment is a complex problem and very sensitive to the domain of the training data. Evaluating sentiment, especially for larger text samples, can also be hard to determine. A more granular understanding of sentiment as it applies to a specific entity, such as targetted sentiment, would be more appropriate.
+For sentiment analysis, finetuned BERT-based models provide some of the best results for various sentiment-related tasks. Sentiment is a complex problem and very sensitive to the domain of the training data - this is an issue for this dataset as there are news articles, tweets, reddit comments, blog posts, etc. Evaluating sentiment, especially for larger text samples, can also be hard to determine, i.e., "is the article negative and negative towards a specific company?". A more granular understanding of sentiment as it applies to a specific entity, such as targetted sentiment, finetuned for each media domain, would be more appropriate.
 
 This is a rough project structure with two types of analyses, one on the "news" data and one on the "social" data. A few missing things from the project: type hints, complete class/function documentation, refactoring, performance considerations, handling data properly, testing, proper model hygiene, and requirements.
 
@@ -31,12 +31,12 @@ Results found in /models/news_analysis/
 
 # Social Analysis
 
-This analysis looks at what the positive and negative things that are being said on social media with the largest impact. "impact" is inferred here by audiance views, but can be inferred through various different ways. 
+This analysis looks at what the positive and negative things that are being said on social media with the largest impact. "impact" is inferred here by audience views, but can be inferred through various different ways. 
 
 Approach: The approach here is to first find where "Southwest Airlines" is being mentioned in social media. Then to limit analysis to the most impactful posts/comments/tweets, the stats metadata is used to sort by audience_views. Taking the 1000 most viewed data points, sentiment analysis is performed using a BERT-based huggingface model. Then topic modelling is done on negative and positive social media interactions separately. 
 
 Results:
-Topics amongst negative and highly impactful social media interactions for Southwest:
+Topics amongst positive and highly impactful social media interactions for Southwest:
 - companion pass and other airline rewards
 - promotions and deals
 
