@@ -9,7 +9,8 @@ import statistics
 class BertSentiment(): 
     """
     This object contains methods for running a huggingface based sentiment model. Note no method for batching sequences 
-    to the model at this time. 
+    to the model at this time. It allows calculating sentiment for text samples that exceed the typical token limit by striding 
+    through the sample and averaging the results. Batching not implemented. 
 
     Attributes
     ----------
