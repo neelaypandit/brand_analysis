@@ -16,15 +16,15 @@ Approach: The approach here is to create two datasets by querying against news h
 
 Results: 
 Competitor/Market analysis caught some interesting topics, some observations:
-    - captured many individuals/specific events with high polarity: negative news on an incident with anthony bass, a Spirit Airlines attendant's viral tiktok video, police arresting a person on American Airlines, an individual urinating on a flight on American Airlines, etc. 
-    - capturing financial events: positive news on Austrian Airlines/Lufthansa group restructure, quarterly reports etc. 
+- captured many individuals/specific events with high polarity: negative news on an incident with anthony bass, a Spirit Airlines attendant's viral tiktok video, police arresting a person on American Airlines, an individual urinating on a flight on American Airlines, etc. 
+- capturing financial events: positive news on Austrian Airlines/Lufthansa group restructure, quarterly reports etc. 
 
 Southwest analysis:
-    - negative news on delays and cancelled flights in general.
-    - postive news on companion pass and rewards program
-    - highly negative news involving a passenger named Savannah Chrisley
-    - highly negative news involving a crying baby
-    - somewhat positive news regarding company financial health
+- negative news on delays and cancelled flights in general.
+- postive news on companion pass and rewards program
+- highly negative news involving a passenger named Savannah Chrisley
+- highly negative news involving a crying baby
+- somewhat positive news regarding company financial health
 
 Results found in /models/news_analysis/
 
@@ -35,18 +35,18 @@ This analysis looks at what the positive and negative things that are being said
 Approach: The approach here is to first find where "Southwest Airlines" is being mentioned in social media. Then to limit analysis to the most impactful posts/comments/tweets, the stats metadata is used to sort by audience_views. Taking the 1000 most viewed data points, sentiment analysis is performed using a BERT-based huggingface model. Then topic modelling is done on negative and positive social media interactions separately. 
 
 Results:
-Topics amongst positive and highly impactful social media interactions:
-    - companion pass and other airline rewards
-    - promotions and deals
-Topics amongst negative and highly impactful social media interactions:
-    - a baby crying video
-    - savannah chrisley
-    - major financial loss after December cancellation chaos
-    - data connection issues resulting from a firewall failure
-    - a poorly recieved billboard campaign
-    - CEO pay hike
-    - delays, cancellations, holiday meltdown
-    - others
+Topics amongst positive and highly impactful social media interactions for Southwest:
+- companion pass and other airline rewards
+- promotions and deals
+Topics amongst negative and highly impactful social media interactions for Southwest:
+- a baby crying video
+- savannah chrisley
+- major financial loss after December cancellation chaos
+- data connection issues resulting from a firewall failure
+- a poorly recieved billboard campaign
+- CEO pay hike
+- delays, cancellations, holiday meltdown
+- others
 
 # To Run:
 To analyze "news" data: python src/main.py configs/news_analysis.json   
