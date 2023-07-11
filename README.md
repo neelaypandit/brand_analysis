@@ -35,9 +35,10 @@ This analysis looks at what the positive and negative things that are being said
 Approach: The approach here is to first find where "Southwest Airlines" is being mentioned in social media. Then to limit analysis to the most impactful posts/comments/tweets, the stats metadata is used to sort by audience_views. Taking the 1000 most viewed data points, sentiment analysis is performed using a BERT-based huggingface model. Then topic modelling is done on negative and positive social media interactions separately. 
 
 Results:
-Topics amongst positive and highly impactful social media interactions for Southwest:
+Topics amongst negative and highly impactful social media interactions for Southwest:
 - companion pass and other airline rewards
 - promotions and deals
+
 Topics amongst negative and highly impactful social media interactions for Southwest:
 - a baby crying video
 - savannah chrisley
@@ -50,6 +51,7 @@ Topics amongst negative and highly impactful social media interactions for South
 
 # To Run:
 To analyze "news" data: ```python src/main.py configs/news_analysis.json```
+
 To analyze "social" data: ```python src/main.py configs/social_analysis.json```  
 
 To test: ```pytest .```
